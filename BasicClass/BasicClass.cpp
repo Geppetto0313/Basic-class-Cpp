@@ -16,7 +16,7 @@ public:
     void SetRadius(double);
 };
 
-//Default Constructor
+//Default Constructor.
 Circle::Circle() {
     Radius = 0;
 }
@@ -26,7 +26,7 @@ Circle::Circle(double r) {
     Radius = r;
 }
 
-//Copy Constructor
+//Copy Constructor.
 Circle::Circle(Circle& C) {
     Radius = C.Radius;
 }

@@ -1,4 +1,4 @@
-# BasicClass in C++
+# Basic Class Structure C++
  
 This is an example of a basic class in C++
 

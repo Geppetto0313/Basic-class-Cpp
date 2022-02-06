@@ -4,25 +4,25 @@
 class Circle {
 private: 
     //Data Members.
-    int Radius;
+    double Radius;
 public:
     //Member Functions.
     Circle();
-    Circle(int);
+    Circle(double);
     Circle(Circle&);
     ~Circle();
-    int Area();
-    int GetRadius();
-    void SetRadius(int);
+    double Area();
+    double GetRadius();
+    void SetRadius(double);
 };
 
-//Constructor
+//Default Constructor
 Circle::Circle() {
     Radius = 0;
 }
 
 //Parameterized Constructor.
-Circle::Circle(int r) {
+Circle::Circle(double r) {
     Radius = r;
 }
 
@@ -37,24 +37,36 @@ Circle::~Circle() {
 }
 
 //Facilitator.
-int Circle::Area() {
+double Circle::Area() {
     return 3.14 * Radius * Radius;
 }
 
 //Accessor.
-int Circle::GetRadius() {
+double Circle::GetRadius() {
     return Radius;
 }
 
 //Mutator.
-void Circle::SetRadius(int r) {
+void Circle::SetRadius(double r) {
     Radius = r;
 }
 
 int main()
 {
-    //Calling Constructor for Circles of Various sizes.
-    Circle C1(10), C2(22), C3(5), C4(C2);
+    //Calling Default Constructor.
+    Circle C;
+
+    //Calling Parameterized Constructor for Circles of Various sizes.
+    Circle C1(10), C2(22);
+
+    //Calling Copy Constructor.
+    Circle C3(C2);
+
+    //Circle - Default Constructor.
+    std::cout << "Circle:" << std::endl;
+    std::cout << "Radius: " << C.GetRadius() << std::endl;
+    std::cout << "Area: " << C.Area() << std::endl;
+    std::cout << std::endl;
 
     //Circle 1 - Parameterized Constructor.
     std::cout << "Circle 1:" << std::endl;
@@ -68,21 +80,15 @@ int main()
     std::cout << "Area: " << C2.Area() << std::endl;
     std::cout << std::endl;
 
-    //Circle 3 - Parameterized Constructor.
+    //Circle 4 - Copy Constructor.
     std::cout << "Circle 3:" << std::endl;
     std::cout << "Radius: " << C3.GetRadius() << std::endl;
     std::cout << "Area: " << C3.Area() << std::endl;
     std::cout << std::endl;
 
-    //Circle 4 - Copy Constructor.
-    std::cout << "Circle 4:" << std::endl;
-    std::cout << "Radius: " << C4.GetRadius() << std::endl;
-    std::cout << "Area: " << C4.Area() << std::endl;
-    std::cout << std::endl;
-
     //Changing Circle 1 from Radius 10 to 20.
-    std::cout << "Changing Radius of Circle 1 to 20" << std::endl;
     C1.SetRadius(20);
+    std::cout << "Changed Radius of Circle 1 to 20" << std::endl;
     std::cout << "New Circle 1:" << std::endl;
     std::cout << "Radius: " << C1.GetRadius() << std::endl;
     std::cout << "Area: " << C1.Area() << std::endl;
